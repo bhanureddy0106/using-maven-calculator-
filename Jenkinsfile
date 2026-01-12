@@ -13,16 +13,11 @@ pipeline {
             }
         }
 
-        stage('Build & Test') {
-            steps {
-                bat 'mvn clean test package'
-            }
-        }
+       stage('Build & Test') {
+    steps {
+        bat 'mvn clean test'
+    }
+}
 
-        stage('Archive Artifact') {
-            steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-            }
-        }
     }
 }
