@@ -7,15 +7,16 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Checkout & Build') {
             steps {
                 checkout scm
+                bat 'mvn clean package'
             }
         }
 
-        stage('Build & Test') {
+        stage('Archive') {
             steps {
-                bat 'mvn clean test'
+                archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
             }
         }
     }
