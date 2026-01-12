@@ -1,12 +1,19 @@
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CalculatorTest {
 
     @Test
-    public void testAddition() {
-        int a = 6;
-        int b = 7;
-        assertEquals(13, a + b);
+    public void testAdd() {
+        Calculator calc = new Calculator();
+        int result = calc.add(2, 3);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void testSubtract() {
+        Calculator calc = new Calculator();
+        int result = calc.subtract(5, 3);
+        assertEquals(2, result);
     }
 }
